@@ -1,0 +1,21 @@
+<%= link_to "Home", root_path %>
+<h1>Categories</h1>
+<% if @categories.length > 0 %>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+  </tr>
+  <% @categories.each do |category| %>
+  <tr>
+    <td>
+      <%= category.id %>
+    </td>
+    <td>
+      <%= category.name %>
+    </td>
+    </tr>
+  <% end %>
+</table><%else%>
+  There is no category in the database. Please add one.
+<%end%>
