@@ -8,4 +8,3 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:currency, :gross)
     end
 end
-# currency:string gross:integer discount:integer net_price:integer
