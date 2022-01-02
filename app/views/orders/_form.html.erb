@@ -1,0 +1,40 @@
+<%= form_with model: order do |form| %>
+
+  <div>
+    <%= form.label :currency %><br>
+    <%= form.select :currency, [ "TR", "EUR", "USD"] %>
+    <% order.errors.full_messages_for(:currency).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+    <div>
+    <%= form.label :gross %><br>
+    <%= form.number_field  :gross%>
+    <% order.errors.full_messages_for(:gross).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+<div>
+    <%= form.label :discount %><br>
+    <%= form.number_field :discount%>
+    <% order.errors.full_messages_for(:discount).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :category_id %><br>
+   <% options = options_from_collection_for_select(@categories, 'id', 'name') %>
+    <%= form.select :category_id,  options, { include_blank: true } %>
+    <% order.errors.full_messages_for(:category_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

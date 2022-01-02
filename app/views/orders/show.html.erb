@@ -1,0 +1,16 @@
+<%= link_to "All Orders", orders_path %>
+<h1>Order Details</h1>
+
+<p><%= @order.currency %></p>
+<p><%= @order.gross %></p>
+<p><%= @order.discount %></p>
+<p><%= @order.created_at %></p>
+<p><%= @order.updated_at %></p>
+<% if @order.category%>
+            <%= @order.category.name %>
+        <% else %>
+            <%= "No category" %>
+        <% end%>
+<%= link_to "Edit", edit_order_path(@order) %>
+<%= button_to "Delete", @order, method: :delete , data: {confirm: 'Are you sure?'} %>
+

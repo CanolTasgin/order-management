@@ -2,14 +2,19 @@
 <h1>Orders</h1>
 <table>
   <tr>
+    <th>Id</th>
     <th>Currency</th>
-    <th>Gross Price</th>
+    <th>Gross</th>
     <th>Discount</th>
-    <th>Net Price</th>
+    <th>Net</th>
     <th>Category</th>
+    <th>Details</th>
   </tr>
   <% @orders.each do |order| %>
   <tr>
+      <td>
+      <%= order.id %>
+    </td>
     <td>
       <%= order.currency %>
     </td>
@@ -20,7 +25,11 @@
       <%= order.discount %>
     </td>
     <td>
-      <%= order.gross - order.discount %>
+     <% if order.discount%>
+             <%= order.gross - order.discount %>
+        <% else %>
+            <%= order.gross %>
+        <% end%>
     </td>
     <td>
         <% if order.category%>
@@ -29,6 +38,10 @@
             <%= "No category" %>
         <% end%>
     </td>
+    <td>
+       <%= link_to '>', order %>
+    </td>
     </tr>
   <% end %>
 </table>
+<p> <%= link_to "Create", new_order_path(@order)%> </p>
