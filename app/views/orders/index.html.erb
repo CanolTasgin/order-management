@@ -7,12 +7,17 @@
 
 <%end%>
 
+<% if @categories.length > 0 %>
+<div class="left"></div>
+<h4>Filter orders by Category:</h4>
 <ul>
     <li><%= link_to 'Clear Filters', orders_path %></li>
     <% @categories.each do |cat| %>
         <li><%= link_to cat.name, orders_path(:category => cat.id) %></li>
     <% end %>
 </ul>
+
+<%end%>
 
 <% if @list.length > 0 %>
 <table>

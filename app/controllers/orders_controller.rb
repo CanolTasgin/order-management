@@ -15,9 +15,8 @@ class OrdersController < ApplicationController
     end
 
     def create
-    @categories = Category.all
-    @order = Order.new(order_params)
-    Rails.logger.debug("Tried to create following order: #{@order.discount}") 
+        @categories = Category.all
+        @order = Order.new(order_params)
         if @order.save
             redirect_to @order
         else
