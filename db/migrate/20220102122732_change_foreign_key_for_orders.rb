@@ -1,5 +1,5 @@
 class ChangeForeignKeyForOrders < ActiveRecord::Migration[7.0]
   def change
-    rename_column :orders, :category_id, :categories_id
+    rename_column :orders, :categories_id, :category_id
   end
 end
