@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_01_223613) do
+ActiveRecord::Schema.define(version: 2022_01_02_122732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2022_01_01_223613) do
     t.integer "discount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_orders_on_category_id"
+    t.bigint "categories_id"
+    t.index ["categories_id"], name: "index_orders_on_categories_id"
   end
 
-  add_foreign_key "orders", "categories"
+  add_foreign_key "orders", "categories", column: "categories_id"
 end
