@@ -5,6 +5,7 @@
   <tr>
     <th>Id</th>
     <th>Name</th>
+    <th>Details</th>
   </tr>
   <% @categories.each do |category| %>
   <tr>
@@ -14,8 +15,15 @@
     <td>
       <%= category.name %>
     </td>
+    <td>
+       <%= link_to '>', category %>
+    </td>
     </tr>
+
+         
+
   <% end %>
 </table><%else%>
   There is no category in the database. Please add one.
 <%end%>
+<p> <%= link_to "Create", new_category_path(@category)%> </p>
