@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
     def index
-        @orders = Order.all.order(:id)
+        @categories = Category.all.order(:id)
+        @selected_cat = params[:category].blank? ? '' : Category.find(params[:category]).name
+        @list = params[:category].blank? ? Order.all.order(:id) : Order.where(category_id: params[:category]).select(:id, :currency, :gross, :discount, :category_id).order(:id)
     end
 
     def show
@@ -13,6 +15,7 @@ class OrdersController < ApplicationController
     end
 
     def create
+    @categories = Category.all
     @order = Order.new(order_params)
     Rails.logger.debug("Tried to create following order: #{@order.discount}") 
         if @order.save
@@ -28,6 +31,7 @@ class OrdersController < ApplicationController
     end
 
     def update
+        @categories = Category.all
         @order = Order.find(params[:id])
 
         if @order.update(order_params)
