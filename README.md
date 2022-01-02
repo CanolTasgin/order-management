@@ -2,7 +2,7 @@
 
 ### Deployed on Heroku
 
-[Visit Live App](http://https://order-management-parasut.herokuapp.com/ "Visit Live App")
+[Visit Live App](https://order-management-parasut.herokuapp.com/ "Visit Live App")
 
 #### Prerequisites
 
